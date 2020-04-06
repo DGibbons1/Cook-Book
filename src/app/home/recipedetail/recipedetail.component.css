@@ -1,0 +1,14 @@
+.section-header {
+    display: inline-block;
+}
+
+.title-row {
+    width: 100%;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.manage-btn{
+    display: block;
+    float: right;
+}
