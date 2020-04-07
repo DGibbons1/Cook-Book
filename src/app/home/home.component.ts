@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MockDB } from '../mockDB/mockDB';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(database: MockDB) {
+    console.log(database.getRecipes());
+   }
 
   ngOnInit() {
   }

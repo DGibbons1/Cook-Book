@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MockDB } from 'src/app/mockDB/mockDB';
+import { Recipe } from 'src/app/models/Recipe';
 
 @Component({
   selector: 'app-recipelist',
@@ -8,9 +10,12 @@ import { Router } from '@angular/router';
 })
 export class RecipelistComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  public recipesArr: Recipe[];
 
-  ngOnInit() {
-  }
+  constructor(private router: Router, database: MockDB) {
+    this.recipesArr = database.getRecipes();
+   }
+
+  ngOnInit() {}
 
 }

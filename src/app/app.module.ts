@@ -7,6 +7,9 @@ import { ShoppinglistComponent } from './shoppinglist/shoppinglist.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeModule } from './home/home.module';
 
+// Import Mock Database
+import { MockDB } from './mockDB/mockDB';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,7 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     HomeModule
   ],
-  providers: [],
+  providers: [MockDB],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
