@@ -1,26 +1,24 @@
 <div class="row title-row">
-    <h2 class="section-header">Cajun Chicken Stir-fry</h2>
+    <h2 class="section-header">{{ selectedRecipe.name }}</h2>
     <div class="dropdown manage-btn">
         <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown">Manage Recipe</button>
         <div class="dropdown-menu">
           <a class="dropdown-item">Add to Shopping List</a>
           <a class="dropdown-item">Edit Recipe</a>
-          <a class="dropdown-item">Delete Recipe</a>
+          <a class="dropdown-item" (click)="deleteRecipe()">Delete Recipe</a>
         </div>
     </div>
 </div>
 
 <div class="row">
-      <img src="../../../assets/images/stir-fry-img.jpg" class="img-responsive" style="max-height: 300px;">
+      <img src="{{ selectedRecipe.imagePath }}" class="img-responsive" style="max-height: 300px;">
 </div>
 
 <div class="row">
     <h5 class="header-padding">Preparation</h5>
 </div>
 <div class="row">
-    <p>A spicy cajun chicken stir fry. Heat the oil in a large frying pan and fry the chicken, Perfect Shake Cajun Special Blend and onion for 4-5 minutes until browned.
-    Add the pepper and carrots and fry for 2-3 minutes. Blend the cornflour with the tomato pureé, chicken stock and 4 tbs pineapple juice.    
-    Add to the pan with the pineapple chunks and bring to the boil, stirring until thickened. Simmer gently for 1 minute.
+    <p>{{ selectedRecipe.description }}
     </p>
 </div>
 <div class="row">
@@ -28,14 +26,8 @@
 </div>
 <div class="row">
     <ul class="list-group">
-        <li class="list-group-item">
-            Olive Oil - 1 tbs
-        </li>
-        <li class="list-group-item">
-            Chicken Strips - 200g
-        </li>
-        <li class="list-group-item">
-            Onion, Sliced - 1 nr.
+        <li class="list-group-item" *ngFor="let item of ingredientsArr">
+            {{ item.name }} - {{ item.quantity }}
         </li>
     </ul>
 </div>

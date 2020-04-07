@@ -8,9 +8,7 @@ import { MockDB } from '../mockDB/mockDB';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(database: MockDB) {
-    console.log(database.getRecipes());
-   }
+  constructor(database: MockDB) {}
 
   ngOnInit() {
   }

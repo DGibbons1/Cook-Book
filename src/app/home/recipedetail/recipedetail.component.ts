@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MockDB } from 'src/app/mockDB/mockDB';
+import { Recipe } from 'src/app/models/Recipe';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Ingredient } from 'src/app/models/ingredient';
 
 @Component({
   selector: 'app-recipedetail',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipedetailComponent implements OnInit {
 
-  constructor() { }
+  public selectedRecipe: Recipe;
+  public selectedID: number;
+  public ingredientsArr: Ingredient[];
+
+  constructor(private database: MockDB, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.selectedID = Number(params.id);
+      this.selectedRecipe = this.database.getRecipe(this.selectedID);
+      this.ingredientsArr = this.selectedRecipe.ingredients;
+    });
+  }
+
+  // Method to remove the seleced recipe from the database.
+  public deleteRecipe(id: number): void {
+    this.database.deleteRecipe(id); // Remove record from Database
+    this.router.navigateByUrl('/recipes');
   }
 
 }
