@@ -1,13 +1,18 @@
 import { Recipe } from '../models/Recipe';
 import { Ingredient } from '../models/ingredient';
+import { EventEmitter } from '@angular/core';
 
 export class MockDB {
 
     // Instance Variables
     private recipeArr: Recipe[] = [];
+    public onDataChangeEvent: EventEmitter<any> = new EventEmitter();
 
     // Constructor
-    constructor() {
+    constructor() {}
+
+    // Method to set up DB
+    public setupDB(): void {
         this.addRecipeOne();
         this.addRecipeTwo();
         this.addRecipeThree();
@@ -41,13 +46,15 @@ export class MockDB {
     public deleteRecipe(id: number): void {
         let index = -1;
         for (const i of this.recipeArr) {
-            if (i.recipeID === id) {
+            if (Number(i.recipeID) === id) {
                 index = this.recipeArr.indexOf(i);
             }
         }
         if (index > -1) {
             this.recipeArr.splice(index, 1);
         }
+        // Emit Event to notify application that recipe list has been changed.
+        this.onDataChangeEvent.emit(true);
     }
 
     // Method to Add Recipe 1
@@ -97,7 +104,7 @@ export class MockDB {
         tempArr.push(new Ingredient('Cayenne Pepper', 1 ));
         tempArr.push(new Ingredient('Red Pepper', 1 ));
         const tempRecipe: Recipe = new Recipe(
-            3,
+            2,
             'Cajun Chicken Stir-Fry',
             // tslint:disable-next-line: max-line-length
             'A spicy cajun chicken stir fry. Heat the oil in a large frying pan and fry the chicken, Perfect Shake Cajun Special Blend and onion for 4-5 minutes until browned. Add the pepper and carrots and fry for 2-3 minutes. Blend the cornflour with the tomato pureé, chicken stock and 4 tbs pineapple juice. Add to the pan with the pineapple chunks and bring to the boil, stirring until thickened. Simmer gently for 1 minute.',

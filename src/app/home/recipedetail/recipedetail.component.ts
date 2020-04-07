@@ -28,7 +28,7 @@ export class RecipedetailComponent implements OnInit {
   // Method to remove the seleced recipe from the database.
   public deleteRecipe(id: number): void {
     this.database.deleteRecipe(id); // Remove record from Database
-    this.router.navigateByUrl('/recipes');
+    this.router.navigateByUrl('/recipes'); // Navigate to recipe page
   }
 
 }

@@ -12,10 +12,22 @@ export class RecipelistComponent implements OnInit {
 
   public recipesArr: Recipe[];
 
-  constructor(private router: Router, database: MockDB) {
+  constructor(private router: Router, private database: MockDB) {
+    this.setDataChangedEventListener();
     this.recipesArr = database.getRecipes();
-   }
+  }
 
   ngOnInit() {}
+
+  // Set Event Listener for changes to recipe list
+  private setDataChangedEventListener(): void {
+    this.database.onDataChangeEvent.subscribe(
+      (res: boolean) => {
+        if (res) {
+          this.recipesArr = this.database.getRecipes();
+        }
+      }
+    );
+  }
 
 }

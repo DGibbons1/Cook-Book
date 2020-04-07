@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MockDB } from '../mockDB/mockDB';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +7,7 @@ import { MockDB } from '../mockDB/mockDB';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(database: MockDB) {}
+  constructor() {}
 
   ngOnInit() {
   }

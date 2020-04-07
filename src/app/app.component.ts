@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MockDB } from './mockDB/mockDB';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cookbook';
+
+  constructor(private database: MockDB) {
+    this.database.setupDB();
+  }
 }
