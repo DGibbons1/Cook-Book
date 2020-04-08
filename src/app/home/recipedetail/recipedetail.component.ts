@@ -15,15 +15,20 @@ export class RecipedetailComponent implements OnInit {
   public selectedID: number;
   public ingredientsArr: Ingredient[];
 
-  constructor(private database: MockDB, private route: ActivatedRoute, private router: Router) {}
-
-  ngOnInit() {
+  constructor(private database: MockDB, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe((params: Params) => {
       this.selectedID = Number(params.id);
       this.selectedRecipe = this.database.getRecipe(this.selectedID);
+      if (!this.selectedRecipe) {
+        // Navigate to the recipes home page if recipe ID is not found
+       this.router.navigateByUrl('/recipes');
+       return;
+      }
       this.ingredientsArr = this.selectedRecipe.ingredients;
     });
   }
+
+  ngOnInit() {}
 
   // Method to remove the seleced recipe from the database.
   public deleteRecipe(id: number): void {
