@@ -1,4 +1,4 @@
-import { Recipe } from '../models/Recipe';
+import { Recipe } from '../models/recipe';
 import { Ingredient } from '../models/ingredient';
 import { EventEmitter } from '@angular/core';
 

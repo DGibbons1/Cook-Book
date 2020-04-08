@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MockDB } from 'src/app/mockDB/mockDB';
-import { Recipe } from 'src/app/models/Recipe';
+import { Recipe } from 'src/app/models/recipe';
 
 @Component({
   selector: 'app-recipelist',

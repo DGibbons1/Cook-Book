@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MockDB } from 'src/app/mockDB/mockDB';
-import { Recipe } from 'src/app/models/Recipe';
+import { Recipe } from 'src/app/models/recipe';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Ingredient } from 'src/app/models/ingredient';
 
