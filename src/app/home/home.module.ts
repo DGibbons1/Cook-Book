@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 // Import routing module
 import { HomeRoutingModule } from './home-routing.module';
@@ -22,7 +23,8 @@ import { RecipelistComponent } from './recipelist/recipelist.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

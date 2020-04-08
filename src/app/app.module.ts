@@ -10,6 +10,8 @@ import { HomeModule } from './home/home.module';
 // Import Mock Database
 import { MockDB } from './mockDB/mockDB';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { MockDB } from './mockDB/mockDB';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    FormsModule
   ],
   providers: [MockDB],
   bootstrap: [AppComponent]
