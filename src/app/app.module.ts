@@ -11,12 +11,14 @@ import { HomeModule } from './home/home.module';
 import { MockDB } from './mockDB/mockDB';
 
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShoppinglistComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
