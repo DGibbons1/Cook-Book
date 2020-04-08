@@ -36,4 +36,9 @@ export class RecipedetailComponent implements OnInit {
     this.router.navigateByUrl('/recipes'); // Navigate to recipe page
   }
 
+  // Method to allow user to edit the recipe
+  public onEdit(id: number): void {
+    this.router.navigateByUrl('/recipes/' + id + '/edit');
+  }
+
 }

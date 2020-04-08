@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../../models/ingredient';
 import { Recipe } from '../../models/recipe';
 import { MockDB } from 'src/app/mockDB/mockDB';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipeedit',
@@ -19,11 +19,35 @@ export class RecipeeditComponent implements OnInit {
   public newIngredientName: string;
   public newIngredientQty: number;
 
-  constructor(private database: MockDB, private router: Router) {
-   }
+  private isNew: boolean;
+  private selectedID: number;
+  public selectedRecipe: Recipe;
 
-  ngOnInit() {
+  constructor(private database: MockDB, private router: Router, private route: ActivatedRoute) {
+    // Check if new or edit requried
+    if (this.router.url === '/recipes/new') {
+      this.isNew = true;
+    } else {
+      this.isNew = false;
+      this.route.params.subscribe((params: Params) => {
+        this.selectedID = Number(params.id);
+        this.selectedRecipe = this.database.getRecipe(this.selectedID);
+        if (!this.selectedRecipe) {
+          // Navigate to the recipes home page if recipe ID is not found
+         this.router.navigateByUrl('/recipes');
+         return;
+        }
+        // Set instance variables
+        this.name = this.selectedRecipe.name;
+        this.imgUrl = this.selectedRecipe.imagePath;
+        this.description = this.selectedRecipe.description;
+        this.ingredients = this.selectedRecipe.ingredients;
+      });
+    }
+
   }
+
+  ngOnInit() {}
 
   // Method to add ingredient to temp array
   public addIngredient(): void {
@@ -73,8 +97,13 @@ export class RecipeeditComponent implements OnInit {
 
   // Add new recipe to Mock Database
   public onSave(): void {
+    let recipeID: number;
     if ( this.testRecipeDataEntry() ) {
-      const recipeID = this.getNextRecipeID();
+      if (this.isNew) {
+        recipeID = this.getNextRecipeID();
+      } else {
+        recipeID = this.selectedRecipe.recipeID;
+      }
       const tempRecipe: Recipe = new Recipe(recipeID, this.name, this.description, this.imgUrl, this.ingredients);
       this.database.addRecipe(tempRecipe);
       this.router.navigateByUrl('/recipes'); // Navigate back to recipe page

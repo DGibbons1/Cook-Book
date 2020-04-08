@@ -39,7 +39,19 @@ export class MockDB {
 
     // Method to add Recipe to DB Array
     public addRecipe(newRecipe: Recipe): void {
-        this.recipeArr.push(newRecipe);
+        let isNew = true;
+        let index: number;
+        for (const [i, v] of this.recipeArr.entries()) {
+            if (v.recipeID === newRecipe.recipeID) {
+                isNew = false;
+                index = i;
+            }
+        }
+        if (isNew) {
+            this.recipeArr.push(newRecipe);
+        } else {
+            this.recipeArr[index] = newRecipe;
+        }
     }
 
     // Method to delete recipe from DB Array
