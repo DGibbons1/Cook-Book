@@ -41,4 +41,9 @@ export class RecipedetailComponent implements OnInit {
     this.router.navigateByUrl('/recipes/' + id + '/edit');
   }
 
+  // Method to add current ingredients to shopping list
+  public onShoppingListAdd(): void {
+    this.database.addToShoppingList(this.selectedRecipe.ingredients);
+  }
+
 }

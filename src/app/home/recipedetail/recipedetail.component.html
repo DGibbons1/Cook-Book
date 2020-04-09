@@ -3,7 +3,7 @@
     <div class="dropdown manage-btn">
         <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown">Manage Recipe</button>
         <div class="dropdown-menu">
-          <a class="dropdown-item">Add to Shopping List</a>
+          <a class="dropdown-item" (click)="onShoppingListAdd()">Add to Shopping List</a>
           <a class="dropdown-item" (click)="onEdit(selectedRecipe.recipeID)">Edit Recipe</a>
           <a class="dropdown-item" (click)="deleteRecipe(selectedRecipe.recipeID)">Delete Recipe</a>
         </div>

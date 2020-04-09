@@ -7,6 +7,7 @@ export class MockDB {
     // Instance Variables
     private recipeArr: Recipe[] = [];
     public onDataChangeEvent: EventEmitter<any> = new EventEmitter();
+    private shoppingList: Ingredient[] = [];
 
     // Constructor
     constructor() {}
@@ -21,6 +22,10 @@ export class MockDB {
     // Getter Method
     public getRecipes(): Recipe[] {
         return this.recipeArr;
+    }
+
+    public getShoppingList(): Ingredient[] {
+        return this.shoppingList;
     }
 
     public getRecipe(id: number): Recipe {
@@ -124,6 +129,16 @@ export class MockDB {
             tempArr,
         );
         this.recipeArr.push(tempRecipe);
+    }
+
+    // Update Shopping list
+    public updateShoppingList(updatedList: Ingredient[]): void {
+        this.shoppingList = updatedList;
+    }
+
+    // Add items to the shopping list
+    public addToShoppingList(newItems: Ingredient[]): void {
+        this.shoppingList.push(...newItems);
     }
 
 }
