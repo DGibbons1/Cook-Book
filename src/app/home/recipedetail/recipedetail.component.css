@@ -1,19 +1,14 @@
-.section-header {
-    display: inline-block;
-}
-
 .title-row {
     padding-top: 20px;
     width: 100%;
-    display: inline-block;
     line-height: 40px;
-}
-
-.manage-btn{
-    display: block;
-    float: right;
 }
 
 .header-padding{
     padding-top: 20px;
+}
+
+.img {
+    max-width: 100%;
+    max-height: 300px;
 }

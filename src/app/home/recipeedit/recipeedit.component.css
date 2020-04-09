@@ -19,3 +19,8 @@
     max-height: 300px;
     max-Width: 100%;
 }
+
+.delete-btn {
+    min-width: 60px;
+    line-height: 26px;
+}
