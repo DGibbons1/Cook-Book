@@ -1,0 +1,29 @@
+.new-recipe-btn {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.recipe-list-block {
+    display: inline-block;
+    height: 80px;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+}
+
+
+.recipe-list-header {
+    display: inline-block;
+    max-width: 70%;
+    line-height: 65px;
+    vertical-align: middle;
+}
+
+.img-thumb {
+    max-width: 30%;
+    max-height: 90%;
+    float: right;
+    padding-top: 8px;
+}

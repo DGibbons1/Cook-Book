@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row header-padding">
+      <form>      
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" [(ngModel)]="name" name="name">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="imagePath">Image URL</label>
+              <input type="text" id="imagePath" class="form-control" [(ngModel)]="imgUrl" name="imgUrl" #imagePath>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <img [src]="imagePath.value" class="img-responsive new-img-style">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea id="description" class="form-control" rows="6" [(ngModel)]="description" name="description"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row ingredient-row" *ngFor="let item of ingredients; let i = index">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-6 col-lg-8">
+                <input type="text" class="form-control" value="{{ item.name }}">
+              </div>
+              <div class="col-3 col-lg-2">
+                <input type="number" class="form-control" value="{{ item.quantity }}">
+              </div>
+              <div class="col-3 col-lg-2">
+                <button type="button" class="btn btn-danger btn-sm delete-btn" (click)="onDeleteIngredient(i)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row ingredient-row">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-6 col-lg-8">
+                <input type="text" class="form-control" [(ngModel)]="newIngredientName" name="ingredientName">
+              </div>
+              <div class="col-3 col-lg-2">
+                <input type="number" class="form-control" [(ngModel)]="newIngredientQty" name="ingredientQty">
+              </div>
+              <div class="col-3 col-lg-2">
+                <button type="button" class="btn btn-danger btn-sm delete-btn" (click)="onClearIngredient()">Clear</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button type="button" class="btn btn-success" id="addBtn" (click)="addIngredient()">Add Ingredient</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-12">
+            <button type="button" class="btn btn-danger form-end-btn" (click)="onCancel()">Cancel</button>
+            <button type="button" class="btn btn-success form-end-btn" (click)="onSave()">Save</button>
+          </div>
+        </div>
+      </form>
+  </div>
+</div>

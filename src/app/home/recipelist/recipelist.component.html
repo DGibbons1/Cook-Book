@@ -1,0 +1,8 @@
+<button type="button" class="btn btn-success new-recipe-btn" routerLink="new">+ Recipe</button>
+<hr>
+<div class="list-group">
+    <a class="list-group-item list-group-item-action recipe-list-block" *ngFor="let recipe of recipesArr" routerLink="{{ recipe.recipeID}}">
+        <h6 class="recipe-list-header text-truncate">{{ recipe.name }}</h6>
+        <img class="img-thumb" src="{{ recipe.imagePath }}">
+    </a>
+</div>
