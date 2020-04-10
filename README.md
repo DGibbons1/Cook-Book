@@ -1,27 +1,19 @@
-# Cookbook
+# CookBook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.16.
+The purpose of this project is to demonstrate the developement of a web application using the Angular framework. The application also contains a mock database to temporarily store data entered by the user. The database has been created using a shared service.
 
-## Development server
+This project involves the following elements:
+    - Angular Framework
+    - Responsive design using Bootstrap
+    - Navigation using the Angular Router
+    - Use of shared services throughout the application
+    - TypeScript
+    - HTML
+    - CSS 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Running the application
 
-## Code scaffolding
+Clone the repository to a directory on your computer. In a terminal window, navigate to the cloned directory and run `npm install` to install the required dependencies. Run `ng serve --open` to launch a development server and open the application in the browser. Navigate to `http://localhost:4200/` if the app does not automatically open.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Screenshots
+![Screenshot](./screenshots/screenshot1.PNG)
